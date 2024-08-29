@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  client:
+    image: spring-boot-v3.3.3/eureka-client
+    ports:
+      - "8080:8080"
+    depends_on:
+      - server
+  server:
+    build: .
+    ports:
+      - "8761:8761"
+    restart: on-failure
